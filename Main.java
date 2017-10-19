@@ -1,16 +1,19 @@
 import static java.lang.System.err;
-import java.io.*;
 
 
 
 public class Main {
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
         try{
-            PrintWriter out = new PrintWriter( "output.txt" );
-            out.println(SecureHashAlgorithm256.convert("hgrt4"));
-            out.close();
+            Thread[] thread = new Thread[8];
+            for (int i = 0; i < thread.length; i++) {
+                thread[i] = new MyThread("Hello world from thread" + i);
+            }
+            for (int i = 0; i < thread.length; i++) {
+                thread[i].start();
+            }
         }catch (Exception e){
             System.out.println("Got an exception! " + err);
         }
