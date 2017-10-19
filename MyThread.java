@@ -1,3 +1,4 @@
+
 import java.io.PrintWriter;
 
 import static java.lang.System.err;
@@ -8,7 +9,6 @@ import static java.lang.System.err;
 public class MyThread extends Thread {
 
     String message;
-
     private volatile boolean done = false;
 
     public MyThread(String m)
@@ -18,16 +18,14 @@ public class MyThread extends Thread {
 
     public void run()
     {
-            try {
-                while (!done) {
-                    PrintWriter out = new PrintWriter("output.txt");
-                    out.println(message);
-                    out.close();
-                    setDone();
-                }
-            }catch (Exception e) {
-                System.out.println("Got an exception! " + err);
+        try {
+            while (!done) {
+                System.out.println(message);
+                setDone();
             }
+        }catch (Exception e) {
+            System.out.println("Got an exception! " + err);
+        }
     }
 
     public void setDone()
