@@ -6,7 +6,8 @@ import static java.lang.System.err;
 /**
  * Created by ioan on 10/19/17.
  */
-public class MyThread extends Thread {
+public class MyThread extends Thread 
+{
 
     String message;
     private volatile boolean done = false;
