@@ -2,7 +2,8 @@ import static java.lang.System.err;
 
 
 
-public class Main {
+public class Main
+{
 
     public static void main(String[] args)
     {
