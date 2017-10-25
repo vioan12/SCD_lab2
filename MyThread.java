@@ -13,6 +13,8 @@ public class MyThread extends Thread
 {
 
     private static boolean done = false;
+    public static String pass;
+    public static int nr_thread;
     private int nr_me,a,b,i;
     public MyThread(int value,int value2,int value3)
     {
@@ -27,8 +29,8 @@ public class MyThread extends Thread
             for (i = a; (i <= b) && (done == false); i++) {
                 if (Main.hashpass.equals(SecureHashAlgorithm256.convert(""+i))) {
                     setDone();
-                    Main.pass=""+i;
-                    System.out.println("Parola " + i + " a fost gasita in Threadul " + nr_me);
+                    pass=""+i;
+                    nr_thread=nr_me;
                 }
             }
         }
